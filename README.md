@@ -19,3 +19,10 @@ The rapid and accurate diagnosis of pneumonia is critical for effective medical 
    ```bash
    git clone [https://github.com/your-username/Pneumonia-Detection.git](https://github.com/your-username/Pneumonia-Detection.git)
    cd Pneumonia-Detection
+
+2. Install required dependencies:
+     pip install -r requirements.txt
+3. Usage & Execution:
+    Phase 1: Train the CNN Model: python scripts/train_pneumonia.py
+    Phase 2: Command Line (CLI) Inference: python scripts/predict_xray.py path/to/sample_xray.jpeg
+    Phase 3: Launch the Streamlit Web Application:streamlit run app.py
