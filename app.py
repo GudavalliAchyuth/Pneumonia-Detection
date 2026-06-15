@@ -1,5 +1,5 @@
 # app.py
-
+import os
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -98,8 +98,13 @@ st.write("Upload a pediatric chest X-ray to get a real-time clinical prediction.
 
 @st.cache_resource
 def load_ai_model():
-    return load_model('models/pneumonia_detector.h5')
-
+    # 1. Get the absolute path of the directory app.py is sitting in
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    # 2. Safely route directly into the models folder
+    MODEL_PATH = os.path.join(BASE_DIR, 'models', 'pneumonia_detector.h5')
+    
+    return load_model(MODEL_PATH)
 try:
     model = load_ai_model()
 except Exception as e:
